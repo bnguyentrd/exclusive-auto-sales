@@ -8,14 +8,12 @@ class AutomobilesForm extends React.Component {
             color: '',
             year: '',
             vin: '',
-            sold: false,
             models: [],
         }
-        this.handleSubmit = this.handleSubmits.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleColorChange = this.handleColorChange.bind(this)
         this.handleYearChange = this.handleYearChange.bind(this)
         this.handleVinChange = this.handleVinChange.bind(this)
-        this.handleSoldChange = this.handleSoldChange.bind(this)
         this.handleModelChange = this.handleModelChange.bind(this)
     }
 
@@ -42,7 +40,6 @@ class AutomobilesForm extends React.Component {
                 year: '',
                 vin: '',
                 model: '',
-                sold: false
             }
             this.setState(cleared)
         }
@@ -61,12 +58,6 @@ class AutomobilesForm extends React.Component {
     handleVinChange(event) {
         const value = event.target.value 
         this.setState({vin:value})
-    }
-
-    handleSoldChange() {
-        this.setState({
-            sold: !this.state.sold
-        })
     }
 
     handleModelChange(event) {
@@ -119,15 +110,6 @@ class AutomobilesForm extends React.Component {
                                 className="form-control"
                                 value={this.state.vin} />
                                 <label htmlFor="vin">VIN</label>
-                            </div>
-                            <div className="mb-3">
-                                <input onChange={this.handleSoldChange}
-                                placeholder="Sold"
-                                type="checkbox"
-                                name="sold"
-                                id="sold"
-                                value={this.state.sold} />
-                                <label htmlFor="sold">Sold</label>
                             </div>
                             <div className="mb-3">
                                 <select required onChange={this.handleModelChange}
