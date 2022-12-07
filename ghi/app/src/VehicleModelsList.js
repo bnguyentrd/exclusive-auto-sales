@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-class ModelsList extends React.Component {
+class VehicleModelsList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -59,4 +59,4 @@ class ModelsList extends React.Component {
     )
   }
 }
-export default ModelsList;
+export default VehicleModelsList;
