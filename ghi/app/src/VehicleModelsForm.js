@@ -26,34 +26,34 @@ class VehicleModelsForm extends React.Component {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-    
+
             },
         };
         const response = await fetch(modelsUrl, fetchConfig);
         if (response.ok) {
 
             const cleared = {
-                name: '', 
+                name: '',
                 pictureUrl: '',
-                manufacturer: '',
+                manufacturers: '',
             }
             this.setState(cleared)
         }
     }
 
     handleNameChange(event) {
-        const value = event.target.value 
+        const value = event.target.value
         this.setState({name:value})
     }
 
     handlePictureChange(event) {
-        const value = event.target.value 
-        this.setState({manufacturer:value})
+        const value = event.target.value
+        this.setState({pictureUrl:value})
     }
 
     handleManufacturerChange(event) {
-        const value = event.target.value 
-        this.setState({manufacturer:value})
+        const value = event.target.value
+        this.setState({manufacturers:value})
     }
 
 
@@ -65,27 +65,27 @@ class VehicleModelsForm extends React.Component {
                         <h1>Create a New Vehicle Model</h1>
                         <form onSubmit={this.handleSubmit} id="create-hat-form">
                             <div className="form-floating mb-3">
-                                <input onChange={this.handleNameChange} 
-                                placeholder="Name" 
-                                required type="text" 
-                                name="name" 
-                                id="name" 
-                                className="form-control" 
+                                <input onChange={this.handleNameChange}
+                                placeholder="Name"
+                                required type="text"
+                                name="name"
+                                id="name"
+                                className="form-control"
                                 value={this.state.name} />
                                 <label htmlFor="style">Vehicle Model Name</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input onChange={this.handlePictureChange} 
-                                placeholder="Picture" 
-                                required type="text" 
-                                name="picture" 
-                                id="picture" 
-                                className="form-control" 
+                                <input onChange={this.handlePictureChange}
+                                placeholder="Picture"
+                                required type="text"
+                                name="picture"
+                                id="picture"
+                                className="form-control"
                                 value={this.state.pictureUrl} />
                                 <label htmlFor="fabric">Vehicle Picture</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input onChange={this.handleManufacturer} placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" value={this.state.manufacturer} />
+                                <input onChange={this.handleManufacturerChange} placeholder="Manufacturers" required type="text" name="manufacturers" id="manufacturers" className="form-control" value={this.state.manufacturers} />
                                 <label htmlFor="color">Vehicle Manufacturer</label>
                             </div>
                             <button className="btn btn-primary">Create Vehicle Model</button>
