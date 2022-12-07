@@ -11,10 +11,13 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/models">Vehicle Models List</NavLink>
+              <NavLink className="nav-link" to="/manufacturer">Manufacturer List</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturer">Manufacturer List</NavLink>
+              <NavLink className="nav-link" to="/manufacturer/new">Create Manufacturer</NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/models">Vehicle Models List</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/models/new">Create Vehicle Model</NavLink>

@@ -31,8 +31,9 @@ class VehicleModels extends React.Component {
 
     render () {
         return (
+			<>
+			<h1>Vehicle models</h1>
             <table className="table table-striped">
-                <h1>Vehicle models</h1>
                 <thead>
                     <tr>
                         <th>Model Name</th>
@@ -52,6 +53,7 @@ class VehicleModels extends React.Component {
                     })}
                 </tbody>
             </table>
+			</>
         )
     }
 }
