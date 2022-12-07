@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import VehicleModelsList from './VehicleModelsList';
-import ManufacturerList from './ManufacturersList';
+import ManufacturersList from './ManufacturersList';
+import ManufacturersForm from './ManufacturersForm';
 import VehicleModelsForm from './VehicleModelsForm';
 import AutomobilesForm from './AutomobilesForm';
 
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/models" element={<VehicleModelsList />} />
-          <Route path="/manufacturer" element={<ManufacturerList />} />
+          <Route path="/manufacturer" element={<ManufacturersList />} />
+          <Route path="/manufacturer/new" element={<ManufacturersForm />} />
           <Route path="/models/new" element={<VehicleModelsForm />} />
           <Route path="/automobiles/new" element={<AutomobilesForm />} />
         </Routes>

@@ -32,8 +32,8 @@ class ManufacturersList extends React.Component {
     render() {
         return (
             <>
+            <h1>Manufacturers</h1>
             <table className="table table-striped">
-                <h1>Manufacturers</h1>
                 <thead>
                     <tr>
                         <th>Name</th>

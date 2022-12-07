@@ -1,7 +1,7 @@
 import React from 'react'
 
-class CreateManufacturer extends React.Component {
-    contsructor(props) {
+class ManufacturersForm extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
             name:"",
@@ -13,10 +13,8 @@ class CreateManufacturer extends React.Component {
     async handleSubmit(event) {
         event.preventDefault()
         const data = {...this.state}
-        delete data.bins;
-        console.log(data);
 
-        const manfacturerUrl = 'http://localhost:8100/api/models/'
+        const manufacturerUrl = 'http://localhost:8100/api/manufacturers/'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -69,4 +67,4 @@ class CreateManufacturer extends React.Component {
 
 }
 
-export default CreateManufacturer;
+export default ManufacturersForm;
