@@ -1,16 +1,17 @@
 import React from 'react';
 
+
 class ManufacturersList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            mmanufacturers: [],
+            manufacturers: [],
         }
         this.getManufacturers = this.getManufacturers.bind(this)
     }
 
     async getManufacturers() {
-        const manufacturersUrl = 'http://localhost:8100/api/manufacturers'
+        const manufacturersUrl = 'http://localhost:8100/api/manufacturers/'
         try {
             const manufacturersResponse = await fetch(manufacturersUrl)
             if (manufacturersResponse.ok) {
