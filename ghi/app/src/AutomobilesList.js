@@ -1,11 +1,28 @@
 import React from 'react';
 
+class AutomobilesList extends React.Component {
+constructor(props) {
+    super(props);
+    this.state = {
+        automobiles: [],
+    };
+    
+}
 
-function AutomobilesList(props) {
+async componentDidMount() {
+    const url = 'http://localhost:8100/api/automobiles/'
+    const response = await fetch(url);
+    if (response.ok) {
+        const data = await response.json();
+        this.setState({ automobiles: data.automobiles });
+    }
+}
 
+
+render() {
     return (
         <div className="container">
-            <h1 className="display-5">Automobiles List</h1>
+            <h1>Automobiles List</h1>
             <div className="row">
                 <table className="table table-striped">
                     <thead>
@@ -18,14 +35,14 @@ function AutomobilesList(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.automobiles.map(automobile => {
+                        {this.state.automobiles.map((automobiles) => {
                             return (
-                                <tr key={automobile.href}>
-                                    <td>{ automobile.vin }</td>
-                                    <td>{ automobile.year }</td>
-                                    <td>{ automobile.model.name }</td>
-                                    <td>{ automobile.color }</td>
-                                    <td>{ automobile.model.manufacturer.name }</td>
+                                <tr key={automobiles.href}>
+                                    <td>{ automobiles.vin }</td>
+                                    <td>{ automobiles.year }</td>
+                                    <td>{ automobiles.model.name }</td>
+                                    <td>{ automobiles.color }</td>
+                                    <td>{ automobiles.model.manufacturer.name }</td>
                                 </tr>
                             );
                         })}
@@ -34,6 +51,7 @@ function AutomobilesList(props) {
             </div>
         </div>
     )
+}
 }
 
 export default AutomobilesList;
