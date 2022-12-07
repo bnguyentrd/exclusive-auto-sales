@@ -9,8 +9,8 @@ class ModelsList extends React.Component {
     }
     this.getVehicleModel = this.getVehicleModel.bind(this)
   }
-  
-  
+
+
   async getVehicleModel() {
     const vehicleURL = 'http://localhost:8100/api/models/'
     try {

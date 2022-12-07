@@ -1,13 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function ManufacturerList() {
-    const [manufacturer, setManufacturer] = useState([]);
-    const getManufacturer = async () => {
-        const manufacturerUrl = 'http://localhost:8100/api/manufacturers/'
-        const response = await fetch(manufacturerUrl);
-        if (response.ok) {
-            const listManufacturer = await response.json();
-            setManufacturer(listManufacturer.manufacturer);
+class ManufacturersList extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            mmanufacturers: [],
+        }
+        this.getManufacturers = this.getManufacturers.bind(this)
+    }
+
+    async getManufacturers() {
+        const manufacturersUrl = 'http://localhost:8100/api/manufacturers'
+        try {
+            const manufacturersResponse = await fetch(manufacturersUrl)
+            if (manufacturersResponse.ok) {
+                const manufacturersData = await manufacturersResponse.json()
+                this.setState({
+                    manufacturers: manufacturersData.manufacturers,
+                })
+            }
+        } catch (error) {
+            console.error(error)
         }
     }
+
+    async componentDidMount() {
+        this.getManufacturers()
+    }
+
+    render() {
+        return (
+            <>
+            <table className="table table-striped">
+                <h1>Manufacturers</h1>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.manufacturers.map(manufacturers => {
+                        return (
+                            <tr key={ manufacturers.id }>
+                                <td>{ manufacturers.name }</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+            </>
+        )
+    }
+
 }
+
+export default ManufacturersList;
