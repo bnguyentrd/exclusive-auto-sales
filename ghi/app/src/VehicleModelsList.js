@@ -56,4 +56,4 @@ class VehicleModels extends React.Component {
     }
 }
 
-export default VehicleModels
+export default VehicleModels;

@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 class VehicleModelsForm extends React.Component {
     constructor(props) {
         super(props)
@@ -48,11 +51,51 @@ class VehicleModelsForm extends React.Component {
         this.setState({manufacturer:value})
     }
 
+    handleManufacturerChange(event) {
+        const value = event.target.value 
+        this.setState({manufacturer:value})
+    }
+
 
     render() {
         return (
-            <div
+            <div className="row">
+                <div className="offset-3 col-6">
+                    <div className="shadow p-4 mt-4">
+                        <h1>Create a New Vehicle Model</h1>
+                        <form onSubmit={this.handleSubmit} id="create-hat-form">
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handleNameChange} 
+                                placeholder="Name" 
+                                required type="text" 
+                                name="name" 
+                                id="name" 
+                                className="form-control" 
+                                value={this.state.name} />
+                                <label htmlFor="style">Vehicle Model Name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handlePictureChange} 
+                                placeholder="Picture" 
+                                required type="text" 
+                                name="picture" 
+                                id="picture" 
+                                className="form-control" 
+                                value={this.state.pictureUrl} />
+                                <label htmlFor="fabric">Vehicle Picture</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handleManufacturer} placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" value={this.state.manufacturer} />
+                                <label htmlFor="color">Vehicle Manufacturer</label>
+                            </div>
+                            <button className="btn btn-primary">Create Vehicle Model</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         )
     }
 
 }
+
+export default VehicleModelsForm;
