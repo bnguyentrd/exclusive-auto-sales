@@ -1,4 +1,4 @@
-class ModelsForm extends React.Component {
+class VehicleModelsForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -31,8 +31,28 @@ class ModelsForm extends React.Component {
 
             const cleared = {
                 name: '', 
-                
+                pictureUrl: '',
+                manufacturer: '',
             }
+            this.setState(cleared)
         }
     }
+
+    handleNameChange(event) {
+        const value = event.target.value 
+        this.setState({name:value})
+    }
+
+    handlePictureChange(event) {
+        const value = event.target.value 
+        this.setState({manufacturer:value})
+    }
+
+
+    render() {
+        return (
+            <div
+        )
+    }
+
 }
