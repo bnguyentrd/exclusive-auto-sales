@@ -85,7 +85,7 @@ class VehicleModelsForm extends React.Component {
                         name="name"
                         id="name"
                         className="form-control" />
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Model Name</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input onChange={this.handleChangePicture}
