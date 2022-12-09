@@ -152,7 +152,7 @@ The Sales application keeps track of automobile sales that come from the invento
 			}
 		}
 	]
-}```
+}
 
     Create Vehicle Model:
         - (POST) | http://localhost:8100/api/models/
@@ -161,7 +161,7 @@ The Sales application keeps track of automobile sales that come from the invento
   "name": "Sebring",
   "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
   "manufacturer_id": 1
-}```
+}
         OUTPUT:
         ```{
 	"href": "/api/models/1/",
@@ -173,4 +173,4 @@ The Sales application keeps track of automobile sales that come from the invento
 		"id": 1,
 		"name": "Chrysler"
 	}
-}```
+}
