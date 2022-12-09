@@ -28,7 +28,7 @@ class Appointment(models.Model):
         on_delete=models.PROTECT,
     )
     reason = models.TextField()
-    VIP = models.BooleanField(default=False)
+    vip = models.BooleanField(default=False)
     fin = models.BooleanField(default=False)
 
     def get_api_url(self):
