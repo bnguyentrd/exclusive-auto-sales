@@ -138,7 +138,7 @@ The Sales application keeps track of automobile sales that come from the invento
 # Inventory:
 
 Vehicle Model List:
-    - (GET) | http://localhost:8100/api/models/ 
+(GET) | http://localhost:8100/api/models/ 
 ```
         {
 	"models": [
@@ -158,7 +158,7 @@ Vehicle Model List:
 ```
 
 Create Vehicle Model:
-    - (POST) | http://localhost:8100/api/models/
+(POST) | http://localhost:8100/api/models/
 
 INPUT: 
 
@@ -186,3 +186,97 @@ OUTPUT:
 	}
 }
 ```
+
+Manufacturer List:
+(GET) | http://localhost:8100/api/manufacturers/
+
+```
+{
+	"manufacturers": [
+		{
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "BMW"
+		}
+	]
+}
+```
+
+Create Manufacturer
+(POST) | http://localhost:8100/api/manufacturers/
+INPUT:
+```
+{
+  "name": "BMW"
+}
+```
+
+OUTPUT:
+```
+{
+	"href": "/api/manufacturers/1/",
+	"id": 1,
+	"name": "BMW"
+}
+```
+
+Automobiles List:
+(GET) | http://localhost:8100/api/automobiles/
+```
+{
+	"autos": [
+		{
+			"href": "/api/automobiles/22222222222222222/",
+			"id": 1,
+			"color": "red",
+			"year": 2012,
+			"vin": "22222222222222222",
+			"model": {
+				"href": "/api/models/1/",
+				"id": 1,
+				"name": "Sebring",
+				"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+				"manufacturer": {
+					"href": "/api/manufacturers/1/",
+					"id": 1,
+					"name": "BMW"
+				}
+			}
+		}
+```
+
+Create Automobile:
+(POST) | http://localhost:8100/api/automobiles/
+
+INPUT: 
+```
+{
+  "color": "black",
+  "year": 2022,
+  "vin": "1J4GZ78Y5PC574443",
+  "model_id": 1
+}
+```
+
+OUTPUT:
+```
+{
+	"href": "/api/automobiles/1J4GZ78Y5PC574443/",
+	"id": 7,
+	"color": "black",
+	"year": 2022,
+	"vin": "1J4GZ78Y5PC574443",
+	"model": {
+		"href": "/api/models/1/",
+		"id": 1,
+		"name": "Sebring",
+		"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+		"manufacturer": {
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "BMW"
+		}
+	}
+}
+```
+
