@@ -2,7 +2,6 @@ import React from 'react';
 
 
 class AutomobilesList extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = { 

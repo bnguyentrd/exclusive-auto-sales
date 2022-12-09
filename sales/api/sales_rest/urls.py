@@ -6,4 +6,3 @@ urlpatterns = [
     path('salescustomers/', api_list_sales_customers, name='api_list_sales_customers'),
     path('salesrecords/', api_list_sales_records, name='api_list_sales_records'),
 ]
-
