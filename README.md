@@ -138,7 +138,8 @@ The Sales application keeps track of automobile sales that come from the invento
 
 Vehicle Model List:
     - (GET) | http://localhost:8100/api/models/ 
-        ```{
+```
+        {
 	"models": [
 		{
 			"href": "/api/models/1/",
@@ -153,19 +154,24 @@ Vehicle Model List:
 		}
 	]
 }
+```
 
 Create Vehicle Model:
     - (POST) | http://localhost:8100/api/models/
     INPUT: 
-        ```{
+
+```
+    {
   "name": "Sebring",
   "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
   "manufacturer_id": 1
-}```
+}
 
+```
     OUTPUT:
 
-        ```{
+```
+    {
 	"href": "/api/models/1/",
 	"id": 1,
 	"name": "Sebring",
@@ -175,4 +181,5 @@ Create Vehicle Model:
 		"id": 1,
 		"name": "Chrysler"
 	}
-}```
+}
+```
