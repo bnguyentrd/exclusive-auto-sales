@@ -2,6 +2,7 @@
 
 ## Team:
 Anthony - Service microservice
+
 Bobby - Sales microservice
 
 
@@ -158,7 +159,8 @@ Vehicle Model List:
 
 Create Vehicle Model:
     - (POST) | http://localhost:8100/api/models/
-    INPUT: 
+
+INPUT: 
 
 ```
     {
@@ -168,7 +170,8 @@ Create Vehicle Model:
 }
 
 ```
-    OUTPUT:
+
+OUTPUT:
 
 ```
     {
