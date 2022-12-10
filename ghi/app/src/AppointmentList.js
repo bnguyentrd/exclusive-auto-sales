@@ -74,13 +74,13 @@ class AppointmentList extends React.Component {
                         {this.state.appointments.map((appointment) => {
                             return (
                                 <tr key={appointment.id}>
-                                    <td>{ appointment.vin }</td>
-                                    <td>{ appointment.owner }</td>
-                                    <td>{ new Date(appointment.date_time).toLocaleDateString() }</td>
-                                    <td>{ new Date(appointment.date_time).toLocaleTimeString() }</td>
-                                    <td>{ appointment.technician.name }</td>
-                                    <td>{ appointment.reason }</td>
-                                    <td>{ appointment.vip ? 'VIP' : false }</td>
+                                    <td>{appointment.vin}</td>
+                                    <td>{appointment.owner}</td>
+                                    <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
+                                    <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
+                                    <td>{appointment.technician["name"]}</td>
+                                    <td>{appointment.reason}</td>
+                                    <td>{appointment.vip ? 'VIP' : false}</td>
                                     <td><button className="btn btn-danger"
                                         onClick={this.handleFinished}
                                         value={appointment.id}

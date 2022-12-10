@@ -42,15 +42,15 @@ Bobby - Sales microservice
 
         - add feature for a new vehicle model to vehicle models list
 
-            - http://localhost:3000/models/new 
+            - http://localhost:3000/models/new
 
 
-        - add feature for a new automobile into inventory 
+        - add feature for a new automobile into inventory
 
             - http://localhost:3000/automobiles/new
 
 
-        - list feature of manufacturers; Displays:[name] 
+        - list feature of manufacturers; Displays:[name]
 
             - http://localhost:3000/manufacturer
 
@@ -60,7 +60,7 @@ Bobby - Sales microservice
             - http://localhost:3000/models
 
 
-        - automobiles list: shows list of automobiles; Displays:[VIN, color, year, model, and manufacturer] 
+        - automobiles list: shows list of automobiles; Displays:[VIN, color, year, model, and manufacturer]
 
             - http://localhost:3000/automobiles
 
@@ -71,22 +71,22 @@ Bobby - Sales microservice
 
     - Service appointment allows:
 
-        - feature for new technicians: add form for each technician [name, employee_number] 
+        - feature for new technicians: add form for each technician [name, employee_number]
 
             - http://localhost:3000/technicianform/new
 
 
-        - feature for new service appointments: add form to create new appointments; Displays:[VIN, owner, date/time, technician, reason] 
+        - feature for new service appointments: add form to create new appointments; Displays:[VIN, owner, date/time, technician, reason]
 
             - http://localhost:3000/serviceappointmentform/new
 
 
-        - appointment list: shows list of appointments; Displays: [VIN, owner, date/time, technician, reason, VIP, fin] appointments can be marked as canceled or finished 
-        
+        - appointment list: shows list of appointments; Displays: [VIN, owner, date/time, technician, reason, VIP, fin] appointments can be marked as canceled or finished
+
             - http://localhost:3000/appointmentlist
 
 
-        -  Service History: allows for a filter search using VIN of specific car. Displays:[owner, date/time, technician, reason] 
+        -  Service History: allows for a filter search using VIN of specific car. Displays:[owner, date/time, technician, reason]
 
             - http://localhost:3000/servicehistory
 
@@ -99,12 +99,12 @@ Bobby - Sales microservice
 The Sales application keeps track of automobile sales that come from the inventory.
 
     Features:
-        - Add new sales rep(name and a unique employee number) then adds to sales reps list 
+        - Add new sales rep(name and a unique employee number) then adds to sales reps list
 
             - http://localhost:3000/salesreps/new
 
 
-        - Add new customers(name, address, and phone number) then adds to sales customers list 
+        - Add new customers(name, address, and phone number) then adds to sales customers list
 
             - http://localhost:3000/salescustomers/
 
@@ -139,7 +139,7 @@ The Sales application keeps track of automobile sales that come from the invento
 # Inventory:
 
 Vehicle Model List:
-(GET) | http://localhost:8100/api/models/ 
+(GET) | http://localhost:8100/api/models/
 ```
         {
 	"models": [
@@ -161,7 +161,7 @@ Vehicle Model List:
 Create Vehicle Model:
 (POST) | http://localhost:8100/api/models/
 
-INPUT: 
+INPUT:
 
 ```
     {
@@ -249,7 +249,7 @@ Automobiles List:
 Create Automobile:
 (POST) | http://localhost:8100/api/automobiles/
 
-INPUT: 
+INPUT:
 ```
 {
   "color": "black",
@@ -336,7 +336,7 @@ INPUT:
 }
 ```
 
-OUTPUT: 
+OUTPUT:
 ```
 {
 	"name": "Bobby",
@@ -359,7 +359,7 @@ Sales Records List:
 Create Sales Record:
 (POST) | http://localhost:8090/api/salesrecords/
 
-INPUT: 
+INPUT:
 ```
 {
   "sales_price": 150000,
