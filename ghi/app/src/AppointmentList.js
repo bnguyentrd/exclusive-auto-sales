@@ -4,8 +4,7 @@ class AppointmentList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            vin: '',
-            appointments: []
+            appointments: [],
         }
 
 
@@ -50,7 +49,7 @@ class AppointmentList extends React.Component {
         const response = await fetch(url)
         if (response.ok) {
             const data = await response.json()
-            this.setState({ appointments: data.appointments })
+            this.setState({ appointments: data.appointments });
         }
     };
 
@@ -72,16 +71,16 @@ class AppointmentList extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.appointments.map(appointment => {
+                        {this.state.appointments.map((appointment) => {
                             return (
                                 <tr key={appointment.id}>
-                                    <td>{appointment.vin}</td>
-                                    <td>{appointment.owner}</td>
-                                    <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
-                                    <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
-                                    <td>{appointment.technician["name"]}</td>
-                                    <td>{appointment.reason}</td>
-                                    <td>{appointment.vip ? 'VIP' : false}</td>
+                                    <td>{ appointment.vin }</td>
+                                    <td>{ appointment.owner }</td>
+                                    <td>{ new Date(appointment.date_time).toLocaleDateString() }</td>
+                                    <td>{ new Date(appointment.date_time).toLocaleTimeString() }</td>
+                                    <td>{ appointment.technician.name }</td>
+                                    <td>{ appointment.reason }</td>
+                                    <td>{ appointment.vip ? 'VIP' : false }</td>
                                     <td><button className="btn btn-danger"
                                         onClick={this.handleFinished}
                                         value={appointment.id}
