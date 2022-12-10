@@ -4,7 +4,6 @@ class AppointmentList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            vin: '',
             appointments: []
         }
 
@@ -79,7 +78,7 @@ class AppointmentList extends React.Component {
                                     <td>{appointment.owner}</td>
                                     <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
                                     <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
-                                    <td>{appointment.technician["name"]}</td>
+                                    <td>{appointment.technician.name}</td>
                                     <td>{appointment.reason}</td>
                                     <td>{appointment.vip ? 'VIP' : false}</td>
                                     <td><button className="btn btn-danger"
