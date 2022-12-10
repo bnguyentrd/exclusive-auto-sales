@@ -135,6 +135,7 @@ The Sales application keeps track of automobile sales that come from the invento
 
 ## API Documentation:
 
+
 # Inventory:
 
 Vehicle Model List:
@@ -279,3 +280,288 @@ OUTPUT:
 	}
 }
 ```
+
+# Sales:
+Sales Customers List:
+(GET) | http://localhost:8090/api/salescustomers/
+```
+{
+	"sales_customers": [
+		{
+			"name": "Bobby",
+			"phone_number": "911"
+}
+```
+
+Create Sales Customer:
+(POST) | http://localhost:8090/api/salescustomers/
+
+INPUT:
+```
+{
+	"name": "Bobby",
+	"address": "123 apples st",
+	"phone_number": 91111
+}
+```
+
+OUTPUT:
+```
+{
+	"name": "Bobby",
+	"address": "123 apples st",
+	"phone_number": 91111
+}
+```
+
+Sales Rep List:
+(GET) | http://localhost:8090/api/salesreps/
+```
+{
+	"sales_reps": [
+		{
+			"name": "Bobby",
+			"employee_id": "1223"
+}
+```
+
+Create Sales Rep:
+(POST) | http://localhost:8090/api/salesreps/
+
+INPUT:
+```
+{
+	"name": "Bobby",
+	"employee_id": 1
+}
+```
+
+OUTPUT:
+```
+{
+	"name": "Bobby",
+	"employee_id": 1
+}
+```
+
+Sales Records List:
+(GET) | http://localhost:8090/api/salesrecords/
+```
+{
+    "sales_price": 150000,
+    "sales_customer": "Bobby",
+    "sales_rep_id": "1223",
+    "sales_automobile": "1GCDC14H5DS161081",
+    "sales_rep_name": "Bobby"
+}
+```
+
+Create Sales Record:
+(POST) | http://localhost:8090/api/salesrecords/
+
+INPUT:
+```
+{
+  "sales_price": 150000,
+  "sales_customer": "911",
+  "sales_rep": "1223",
+  "sales_automobile": "1GCDC14H5DS161081"
+}
+```
+
+OUTPUT:
+```
+{
+	"sales_price": 150000,
+	"sales_customer": "Bobby",
+	"sales_rep_id": "1223",
+	"sales_automobile": "1GCDC14H5DS161081",
+	"sales_rep_name": "Bobby"
+}
+```
+
+# Technician
+
+List Technician:
+(GET) | http://localhost:8080/api/appointment/
+
+OUTPUT:
+```
+{
+	"technicians": [
+		{
+			"href": "/api/technician/1/",
+			"name": "Maru",
+			"employee_number": 7331,
+			"id": 1
+		},
+		{
+			"href": "/api/technician/2/",
+			"name": "Mecha",
+			"employee_number": 1337,
+			"id": 2
+		},
+		{
+			"href": "/api/technician/3/",
+			"name": "Jimmy Tortilla",
+			"employee_number": 1993,
+			"id": 3
+		}
+	]
+}
+```
+
+Technician Details:
+(GET) | http://localhost:8080/api/technician/1/
+
+OUTPUT:
+```
+{
+	"href": "/api/technician/1/",
+	"name": "Maru",
+	"employee_number": 7331,
+	"id": 1
+}
+```
+
+Create Technician:
+(POST) | http://localhost:8080/api/technician/
+
+INPUT:
+```
+{
+	"name": "Mecha",
+	"employee_number": 1337
+}
+```
+
+OUTPUT:
+```
+{
+	"href": "/api/technician/2/",
+	"name": "Mecha",
+	"employee_number": 1337
+}
+```
+
+# Appointment
+
+List of Appointments
+(GET) | http://localhost:8080/api/appointment/
+
+OUTPUT:
+```
+{
+	"appointments": [
+		{
+			"href": "/api/appointment/9/",
+			"vin": "AT3ZD10V3W0192432",
+			"owner": "Peggy Hill",
+			"date_time": "2022-12-07T12:00:00+00:00",
+			"technician": {
+				"href": "/api/technician/2/",
+				"name": "Mecha",
+				"employee_number": 1337,
+				"id": 2
+			},
+			"reason": "QUARTER PANEL",
+			"vip": true,
+			"fin": false,
+			"id": 9
+		},
+		{
+			"href": "/api/appointment/11/",
+			"vin": "1HGCP2F7XAA090151",
+			"owner": "",
+			"date_time": "2022-12-19T17:17:00+00:00",
+			"technician": {
+				"href": "/api/technician/3/",
+				"name": "Jimmy Tortilla",
+				"employee_number": 1993,
+				"id": 3
+			},
+			"reason": "",
+			"vip": false,
+			"fin": false,
+			"id": 11
+		},
+		{
+			"href": "/api/appointment/12/",
+			"vin": "AT3ZD10V3W0192432",
+			"owner": "Hank Hill",
+			"date_time": "2022-12-07T12:00:00+00:00",
+			"technician": {
+				"href": "/api/technician/1/",
+				"name": "Maru",
+				"employee_number": 7331,
+				"id": 1
+			},
+			"reason": "QUARTER PANEL",
+			"vip": true,
+			"fin": false,
+			"id": 12
+		}
+	]
+}
+```
+Appointment Detail
+(GET) | http://localhost:8080/api/appointment/9/
+
+OUTPUT:
+```
+{
+    "href": "/api/appointment/9/",
+    "vin": "AT3ZD10V3W0192432",
+    "owner": "Peggy Hill",
+    "date_time": "2022-12-07T12:00:00+00:00",
+    "technician": {
+        "href": "/api/technician/2/",
+        "name": "Mecha",
+        "employee_number": 1337,
+        "id": 2
+    },
+    "reason": "QUARTER PANEL",
+    "vip": true,
+    "fin": false,
+    "id": 9
+}
+```
+
+Create Appointment
+(POST) | http://localhost:8080/api/appointment/
+
+INPUT:
+```
+{
+	"vin": "AT3ZD10V3W0192432",
+	"owner": "Hank Hill",
+	"date_time": "2022-12-07T12:00:00+00:00",
+	"technician": 7331,
+	"reason": "QUARTER PANEL",
+	"vip": true,
+	"fin": false
+}
+```
+
+OUTPUT:
+```
+{
+	"href": "/api/appointment/12/",
+	"vin": "AT3ZD10V3W0192432",
+	"owner": "Hank Hill",
+	"date_time": "2022-12-07T12:00:00+00:00",
+	"technician": {
+		"href": "/api/technician/1/",
+		"name": "Maru",
+		"employee_number": 7331,
+		"id": 1
+	},
+	"reason": "QUARTER PANEL",
+	"vip": true,
+	"fin": false,
+	"id": 12
+}
+```
+
+Service History by VIN
+(GET) | http://localhost:8080/api/appointment/history/FT3HP10V3W0192686/
