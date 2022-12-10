@@ -14,12 +14,12 @@ class SalesRepForm extends React.Component {
     this.handleEmployeeIdChange = this.handleEmployeeIdChange.bind(this);
   }
 
-  async handleSubmit(event){
+  async handleSubmit(event) {
     event.preventDefault();
-    const data = {...this.state};
+    const data = { ...this.state };
     data.employee_id = data.employeeId;
     delete data.employeeId;
-    console.log('DATA: ', data);
+
 
     const postUrl = 'http://localhost:8090/api/salesreps/';
     const fetchConfig = {
@@ -33,7 +33,6 @@ class SalesRepForm extends React.Component {
     const response = await fetch(postUrl, fetchConfig);
     if (response.ok) {
       const newRep = await response.json();
-      console.log("New Sales Rep: ", newRep);
     }
 
     const cleared = {
@@ -48,12 +47,12 @@ class SalesRepForm extends React.Component {
 
   handleNameChange(event) {
     const value = event.target.value;
-    this.setState({name: value})
+    this.setState({ name: value })
   }
 
   handleEmployeeIdChange(event) {
     const value = event.target.value;
-    this.setState({employeeId: value})
+    this.setState({ employeeId: value })
   }
 
 
@@ -65,30 +64,30 @@ class SalesRepForm extends React.Component {
             <h1>Create a Sales Rep</h1>
             <form onSubmit={this.handleSubmit}>
               <div className="form-floating mb-3">
-                <input onChange={this.handleNameChange} 
-                placeholder="Name" 
-                value={this.state.name} 
-                required type="text" 
-                id="name" 
-                name="name" 
-                className="form-control"/>
+                <input onChange={this.handleNameChange}
+                  placeholder="Name"
+                  value={this.state.name}
+                  required type="text"
+                  id="name"
+                  name="name"
+                  className="form-control" />
                 <label htmlFor="fabric">Sales Rep Name</label>
               </div>
               <div className="form-floating mb-3">
-                <input onChange={this.handleEmployeeIdChange} 
-                placeholder="EmployeeId" 
-                value={this.state.employeeId} 
-                required type="text" 
-                id="employeeId" 
-                name="employeeId" 
-                className="form-control"/>
+                <input onChange={this.handleEmployeeIdChange}
+                  placeholder="EmployeeId"
+                  value={this.state.employeeId}
+                  required type="text"
+                  id="employeeId"
+                  name="employeeId"
+                  className="form-control" />
                 <label htmlFor="employeeId">Employee ID</label>
               </div>
               <button className="btn btn-primary">Create</button>
             </form>
           </div>
         </div>
-        </div>
+      </div>
     );
   }
 }

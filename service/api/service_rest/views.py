@@ -19,7 +19,7 @@ class TechnicianEncoder(ModelEncoder):
     properties = [
         "name",
         "employee_number",
-        # "id",
+        "id",
     ]
 
 class AppointmentEncoder(ModelEncoder):
@@ -37,14 +37,8 @@ class AppointmentEncoder(ModelEncoder):
 
     encoders = {
         "technician": TechnicianEncoder(),
-        # "vin": AutomobileVOEncoder(),
     }
 
-    # def get_extra_data(self, o):
-    #     return {
-    #         "technician_name": o.technician_name,
-    #         "vin": o.vin
-    #     }
 
 @require_http_methods(["GET", "POST"])
 def api_list_technician(request):
@@ -165,26 +159,3 @@ def api_show_appointment(request, pk):
             encoder=AppointmentEncoder,
             safe=False
         )
-
-
-# @require_http_methods(["GET", "PUT", "DELETE"])
-# def app_details(request, pk):
-#     if request.method == "GET":
-#         app = Appointment.objects.filter(app_vin = pk)
-#         return JsonResponse(
-#             app,
-#             encoder=AppointmentEncoder,
-#             safe=False
-#         )
-#     elif request.method == "PUT":
-#         content = json.loads(request.body)
-#         Appointment.objects.filter(id=pk).update(**content)
-#         app = Appointment.objects.get(id=pk)
-#         return JsonResponse(
-#             {"app": app},
-#             encoder=AppointmentEncoder,
-#             safe=False
-#         )
-#     else:
-#         count, _=Appointment.objects.filter(id=pk).delete()
-#         return JsonResponse({"deleted": count > 0})

@@ -78,7 +78,7 @@ class ServiceHistory extends React.Component {
                                     <td>{appointment.owner}</td>
                                     <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
                                     <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
-                                    <td>{appointment.technician}</td>
+                                    <td>{appointment.technician.name}</td>
                                     <td>{appointment.reason}</td>
                                 </tr>
                             )

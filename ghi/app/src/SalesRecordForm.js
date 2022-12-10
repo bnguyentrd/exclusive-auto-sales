@@ -32,7 +32,7 @@ class SaleRecordForm extends React.Component {
     delete data.salesReps;
     delete data.salesCustomers;
     delete data.automobiles;
-    console.log("Submit data: ", data);
+
 
     const postUrl = 'http://localhost:8090/api/salesrecords/';
     const fetchConfig = {
@@ -46,7 +46,6 @@ class SaleRecordForm extends React.Component {
     const response = await fetch(postUrl, fetchConfig);
     if (response.ok) {
       const newSale = await response.json();
-      console.log("New Sale: ", newSale);
     }
 
     const cleared = {
@@ -140,21 +139,21 @@ class SaleRecordForm extends React.Component {
             <h1>Create a New Sale Record</h1>
             <form onSubmit={this.handleSubmit}>
               <div className="form-floating mb-3">
-                <input onChange={this.handlePriceChange} 
-                placeholder="price" 
-                value={this.state.price} 
-                required type="number" 
-                min="1000" 
-                step="100" 
-                name="price" 
-                className="form-control" />
+                <input onChange={this.handlePriceChange}
+                  placeholder="price"
+                  value={this.state.price}
+                  required type="number"
+                  min="1000"
+                  step="100"
+                  name="price"
+                  className="form-control" />
                 <label htmlFor="price">Sale price</label>
               </div>
               <div className="mb-3">
-                <select onChange={this.handleAutoChange} 
-                required id="automobile" 
-                name="automobile" 
-                className="form-select">
+                <select onChange={this.handleAutoChange}
+                  required id="automobile"
+                  name="automobile"
+                  className="form-select">
                   <option value="">Choose an Automobile</option>
                   {this.state.automobiles.map(automobile => {
                     return (
@@ -166,10 +165,10 @@ class SaleRecordForm extends React.Component {
                 </select>
               </div>
               <div className="mb-3">
-                <select onChange={this.handleSalesRepChange} 
-                required id="salesReps" 
-                name="salesReps" 
-                className="form-select">
+                <select onChange={this.handleSalesRepChange}
+                  required id="salesReps"
+                  name="salesReps"
+                  className="form-select">
                   <option value="">Choose a Sales Rep</option>
                   {this.state.salesReps.map(salesRep => {
                     return (
@@ -181,10 +180,10 @@ class SaleRecordForm extends React.Component {
                 </select>
               </div>
               <div className="mb-3">
-                <select onChange={this.handleSalesCustomerChange} 
-                required id="salesCustomers" 
-                name="salesCustomers" 
-                className="form-select">
+                <select onChange={this.handleSalesCustomerChange}
+                  required id="salesCustomers"
+                  name="salesCustomers"
+                  className="form-select">
                   <option value="">Choose a Customer</option>
                   {this.state.salesCustomers.map(salesCustomer => {
                     return (
