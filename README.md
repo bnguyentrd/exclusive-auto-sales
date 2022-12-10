@@ -541,6 +541,7 @@ INPUT:
 	"vip": true,
 	"fin": false
 }
+```
 
 OUTPUT:
 ```
