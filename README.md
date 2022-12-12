@@ -562,6 +562,3 @@ OUTPUT:
 	"id": 12
 }
 ```
-
-Service History by VIN
-(GET) | http://localhost:8080/api/appointment/history/FT3HP10V3W0192686/
