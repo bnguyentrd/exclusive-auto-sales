@@ -141,7 +141,7 @@ def api_show_appointment(request, pk):
             return response
     elif request.method == "DELETE":
         try:
-            appointment = Appointment.objects.get(id=pk)
+            appointment = Appointment.objects.get(vin=pk)
             appointment.delete()
             return JsonResponse(
                 {"message": "Appointment deleted"}
@@ -152,8 +152,8 @@ def api_show_appointment(request, pk):
 
     else:
         content = json.loads(request.body)
-        Appointment.objects.filter(id=pk).update(**content)
-        appointment = Appointment.objects.get(id=pk)
+        Appointment.objects.filter(vin=pk).update(**content)
+        appointment = Appointment.objects.get(vin=pk)
         return JsonResponse(
             appointment,
             encoder=AppointmentEncoder,
