@@ -10,9 +10,9 @@ Bobby - Sales microservice
 
 1. Fork the repository, then copy path to clone with https.
 
-2. Open your terminal and enter: git clone <gitlab link>
+2. Open your terminal and enter: git clone -gitlab link-
 
-3. Go into the project directory: CD <project name>
+3. Go into the project directory: CD -project name-
 
 4. Open Docker; while Docker is running, use these commands in terminal.
     - docker volume create beta-data
@@ -20,7 +20,7 @@ Bobby - Sales microservice
     - docker-compose up
 
 5. Make migrations:
-    - docker exec -it <docker container name> bash
+    - docker exec -it -docker container name- bash
     - python manage.py makemigrations
     - python manage.py migrate
 
