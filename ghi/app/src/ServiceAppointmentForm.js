@@ -7,7 +7,7 @@ class ServiceAppointmentForm extends React.Component {
         this.state = {
             vin: '',
             owner: '',
-            dateTime: '',
+            date_time: '',
             reason: '',
             technicians: [],
         }
@@ -25,12 +25,14 @@ class ServiceAppointmentForm extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        const data = { ...this.state }
-        data.date_time = data.dateTime
-        delete data.dateTime
-        delete data.owner
-        delete data.reason
-        delete data.technicians
+        const data = {
+            vin: this.state.vin,
+            owner: this.state.owner,
+            date_time: this.state.date_time,
+            technician: this.state.technician,
+            reason: this.state.reason,
+        }
+
         const technicianUrl = "http://localhost:8080/api/appointment/"
         const fetchConfig = {
             method: "post",
@@ -46,7 +48,7 @@ class ServiceAppointmentForm extends React.Component {
             const cleared = {
                 vin: "",
                 owner: "",
-                dateTime: "",
+                date_time: "",
                 reason: "",
                 technicians: [],
             }
@@ -77,7 +79,7 @@ class ServiceAppointmentForm extends React.Component {
 
     handleDateTimeChange(event) {
         const value = event.target.value;
-        this.setState({ dateTime: value })
+        this.setState({ date_time: value })
     }
 
     handleReasonChange(event) {
@@ -122,7 +124,7 @@ class ServiceAppointmentForm extends React.Component {
                                 <input onChange={this.handleDateTimeChange}
                                     placeholder="Date and Time"
                                     required type="datetime-local"
-                                    value={this.state.dateTime}
+                                    value={this.state.date_time}
                                     name="date_and_time"
                                     id="date_and_time"
                                     className="form-control" />
